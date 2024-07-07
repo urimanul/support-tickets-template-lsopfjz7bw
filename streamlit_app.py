@@ -157,7 +157,7 @@ status_plot = (
 )
 st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
 
-st.write("##### 優先順位")
+st.write("##### Priority")
 priority_plot = (
     alt.Chart(edited_df)
     .mark_arc()
