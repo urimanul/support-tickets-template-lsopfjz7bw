@@ -11,9 +11,8 @@ st.set_page_config(page_title="Support tickets", page_icon="🎫")
 st.title("🎫 Support tickets")
 st.write(
     """
-    This app shows how you can build an internal tool in Streamlit. Here, we are 
-    implementing a support ticket workflow. The user can create a ticket, edit 
-    existing tickets, and view some statistics.
+    サポート チケット ワークフローの実装。ユーザーはチケットを作成、編集できます。 
+    既存のチケットを確認し、統計を表示します。
     """
 )
 
@@ -66,7 +65,7 @@ if "df" not in st.session_state:
 
 
 # Show a section to add a new ticket.
-st.header("Add a ticket")
+st.header("チケット追加")
 
 # We're adding tickets via an `st.form` and some input widgets. If widgets are used
 # in a form, the app will only rerun once the submit button is pressed.
@@ -102,8 +101,8 @@ st.header("Existing tickets")
 st.write(f"Number of tickets: `{len(st.session_state.df)}`")
 
 st.info(
-    "You can edit the tickets by double clicking on a cell. Note how the plots below "
-    "update automatically! You can also sort the table by clicking on the column headers.",
+    "セルをダブルクリックすると、チケットを編集できます。以下のプロットがどのように行われるかに注意してください。
+    「自動的に更新します! 列ヘッダーをクリックしてテーブルを並べ替えることもできます。",
     icon="✍️",
 )
 
