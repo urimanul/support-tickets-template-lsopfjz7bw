@@ -120,7 +120,7 @@ edited_df = st.data_editor(
         ),
         "Priority": st.column_config.SelectboxColumn(
             "Priority",
-            help="優先順位",
+            help="Priority",
             options=["High", "Medium", "Low"],
             required=True,
         ),
