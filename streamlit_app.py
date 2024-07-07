@@ -92,7 +92,7 @@ if submitted:
     )
 
     # Show a little success message.
-    st.write("Ticket submitted! Here are the ticket details:")
+    st.write("詳細:")
     st.dataframe(df_new, use_container_width=True, hide_index=True)
     st.session_state.df = pd.concat([df_new, st.session_state.df], axis=0)
 
@@ -141,7 +141,7 @@ col3.metric(label="Average resolution time (hours)", value=16, delta=2)
 
 # Show two Altair charts using `st.altair_chart`.
 st.write("")
-st.write("##### Ticket status per month")
+st.write("##### 月別チケット・ステータス")
 status_plot = (
     alt.Chart(edited_df)
     .mark_bar()
@@ -157,7 +157,7 @@ status_plot = (
 )
 st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
 
-st.write("##### Current ticket priorities")
+st.write("##### 優先順位")
 priority_plot = (
     alt.Chart(edited_df)
     .mark_arc()
