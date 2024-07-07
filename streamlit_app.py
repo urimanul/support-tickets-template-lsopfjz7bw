@@ -51,7 +51,7 @@ if "df" not in st.session_state:
         "ID": [f"TICKET-{i}" for i in range(1100, 1000, -1)],
         "Issue": np.random.choice(issue_descriptions, size=100),
         "Status": np.random.choice(["Open", "In Progress", "Closed"], size=100),
-        "Priority": np.random.choice(["High", "Medium", "Low"], size=100),
+        "": np.random.choice(["High", "Medium", "Low"], size=100),
         "Date Submitted": [
             datetime.date(2023, 6, 1) + datetime.timedelta(days=random.randint(0, 182))
             for _ in range(100)
@@ -71,7 +71,7 @@ st.header("チケット追加")
 # in a form, the app will only rerun once the submit button is pressed.
 with st.form("add_ticket_form"):
     issue = st.text_area("Describe the issue")
-    priority = st.selectbox("Priority", ["High", "Medium", "Low"])
+    priority = st.selectbox("優先順位", ["High", "Medium", "Low"])
     submitted = st.form_submit_button("Submit")
 
 if submitted:
@@ -120,7 +120,7 @@ edited_df = st.data_editor(
         ),
         "Priority": st.column_config.SelectboxColumn(
             "Priority",
-            help="Priority",
+            help="優先順位",
             options=["High", "Medium", "Low"],
             required=True,
         ),
