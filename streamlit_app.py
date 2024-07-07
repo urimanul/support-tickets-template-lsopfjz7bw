@@ -97,8 +97,8 @@ if submitted:
     st.session_state.df = pd.concat([df_new, st.session_state.df], axis=0)
 
 # Show section to view and edit existing tickets in a table.
-st.header("Existing tickets")
-st.write(f"Number of tickets: `{len(st.session_state.df)}`")
+st.header("既存チケット")
+st.write(f"チケット数: `{len(st.session_state.df)}`")
 
 st.info(
     "セルをダブルクリックすると、チケットを編集できます。",
@@ -114,7 +114,7 @@ edited_df = st.data_editor(
     column_config={
         "Status": st.column_config.SelectboxColumn(
             "Status",
-            help="Ticket status",
+            help="ステータス",
             options=["Open", "In Progress", "Closed"],
             required=True,
         ),
@@ -130,7 +130,7 @@ edited_df = st.data_editor(
 )
 
 # Show some metrics and charts about the ticket.
-st.header("Statistics")
+st.header("統計")
 
 # Show metrics side by side using `st.columns` and `st.metric`.
 col1, col2, col3 = st.columns(3)
