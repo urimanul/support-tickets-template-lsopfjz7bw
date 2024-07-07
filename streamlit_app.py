@@ -135,9 +135,9 @@ st.header("統計")
 # Show metrics side by side using `st.columns` and `st.metric`.
 col1, col2, col3 = st.columns(3)
 num_open_tickets = len(st.session_state.df[st.session_state.df.Status == "Open"])
-col1.metric(label="Number of open tickets", value=num_open_tickets, delta=10)
-col2.metric(label="First response time (hours)", value=5.2, delta=-1.5)
-col3.metric(label="Average resolution time (hours)", value=16, delta=2)
+col1.metric(label="オープンチケット数", value=num_open_tickets, delta=10)
+col2.metric(label="レスポンスタイム（時間）", value=5.2, delta=-1.5)
+col3.metric(label="平均時間", value=16, delta=2)
 
 # Show two Altair charts using `st.altair_chart`.
 st.write("")
