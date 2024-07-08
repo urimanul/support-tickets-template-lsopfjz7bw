@@ -98,7 +98,7 @@ if "df" not in st.session_state:
     # page runs). This ensures our data is persisted when the app updates.
     st.session_state.df = df
 
-
+st.write(issue_descriptions)
 # Show a section to add a new ticket.
 st.header("チケット追加")
 
