@@ -50,7 +50,7 @@ for fetched_line in cur.fetchall():
     #name = fetched_line['Task_Subject']
     #st.write(f'{id}: {name}')
 
-st.write(list(data))
+st.write(data)
 
 #issue_descriptions1 = []
 #for row in cur:
@@ -106,7 +106,7 @@ if "df" not in st.session_state:
         ],
     }
 
-    st.write(data)
+    st.write(data1)
     df = pd.DataFrame(data)
 
     # Save the dataframe in session state (a dictionary-like object that persists across
