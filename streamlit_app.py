@@ -1,10 +1,20 @@
 import datetime
 import random
+import mysql.connector
 
 import altair as alt
 import numpy as np
 import pandas as pd
 import streamlit as st
+
+# DBへ接続
+conn = mysql.connector.connect(
+    user='smairuser',
+    password='smairuser',
+    host='www.ryhintl.com',
+    database='smair',
+    port=36000
+)
 
 # Show app title and description.
 st.set_page_config(page_title="サポート・チケット", page_icon="🎫")
@@ -15,6 +25,23 @@ st.write(
     既存のチケットを確認し、統計を表示します。
     """
 )
+
+# DBの接続確認
+if not conn.is_connected():
+    raise Exception("MySQLサーバへの接続に失敗しました")
+
+cur = conn.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
+
+query__for_fetching = """
+SELECT * FROM todo_tasks ORDER BY task_ID;
+"""
+
+cur.execute(query__for_fetching)
+
+for fetched_line in cur.fetchall():
+    id = fetched_line['id']
+    name = fetched_line['name']
+    st.write(f'{Task_ID}: {Task_Subject}')
 
 # Create a random Pandas dataframe with existing tickets.
 if "df" not in st.session_state:
