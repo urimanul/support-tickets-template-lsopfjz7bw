@@ -40,7 +40,7 @@ SELECT Task_Subject FROM todo_tasks ORDER BY task_ID;
 cur.execute(query__for_fetching)
 
 issue_descriptions1 = []
-for row in cursor:
+for row in cur:
     st.write(row)
     issue_descriptions1.append(row)
 
