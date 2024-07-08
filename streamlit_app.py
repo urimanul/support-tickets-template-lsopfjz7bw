@@ -34,7 +34,7 @@ if not conn.is_connected():
 cur = conn.cursor()
 
 query__for_fetching = """
-SELECT Task_Subject FROM todo_tasks ORDER BY task_ID;
+SELECT Task_Subject FROM todo_tasks ORDER BY task_ID limit 20;
 """
 
 cur.execute(query__for_fetching)
