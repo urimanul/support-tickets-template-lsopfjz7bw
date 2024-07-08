@@ -44,7 +44,7 @@ for row in cur:
     #st.write(row)
     issue_descriptions.append(row["Task_Subject"])
 
-st.write(issue_descriptions1)
+#st.write(issue_descriptions1)
 
 #for fetched_line in cur.fetchall():
     #id = fetched_line['Task_ID']
