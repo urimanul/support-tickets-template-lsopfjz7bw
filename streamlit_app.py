@@ -123,7 +123,18 @@ with st.form("add_ticket_form"):
 if submitted:
     # Make a dataframe for the new ticket and append it to the dataframe in session
     # state.
-    recent_ticket_number = int(max(st.session_state.df.ID).split("-")[1])
+    lastID = "";
+    query__for_count = """
+    SELECT MAX(Task_ID) as lastID FROM FROM todo_tasks;
+    """
+    ;
+    cur.execute(query__for_count)
+    for fetched_line in cur.fetchall():
+        lastID = fetched_line['lastID']
+        st.write(fetched_line['lastID'])
+
+    recent_ticket_number = int(lastID)+1
+    #recent_ticket_number = int(max(st.session_state.df.ID).split("-")[1])
     today = datetime.datetime.now().strftime("%Y-%m-%d")
     df_new = pd.DataFrame(
         [
