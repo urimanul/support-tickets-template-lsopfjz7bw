@@ -106,7 +106,6 @@ if "df" not in st.session_state:
         ],
     }
 
-    st.write(data1)
     df = pd.DataFrame(data)
 
     # Save the dataframe in session state (a dictionary-like object that persists across
@@ -116,6 +115,7 @@ if "df" not in st.session_state:
 #st.write(issue_descriptions)
 # Show a section to add a new ticket.
 st.header("チケット追加")
+st.write(data1)
 
 # We're adding tickets via an `st.form` and some input widgets. If widgets are used
 # in a form, the app will only rerun once the submit button is pressed.
