@@ -46,9 +46,6 @@ for fetched_line in cur.fetchall():
     data1['Status'] = fetched_line['Status']
     data1['Priority'] = fetched_line['Priority']
     data1['Date Submitted'] = fetched_line['Date_Submitted']
-    #id = fetched_line['Task_ID']
-    #name = fetched_line['Task_Subject']
-    #st.write(f'{id}: {name}')
 
 st.write(data1)
 
@@ -106,6 +103,7 @@ if "df" not in st.session_state:
         ],
     }
 
+    st.write(data)
     df = pd.DataFrame(data)
 
     # Save the dataframe in session state (a dictionary-like object that persists across
