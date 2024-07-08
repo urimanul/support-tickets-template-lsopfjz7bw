@@ -41,7 +41,7 @@ cur.execute(query__for_fetching)
 for fetched_line in cur.fetchall():
     id = fetched_line['Task_ID']
     name = fetched_line['Task_Subject']
-    print(f'{Task_ID}: {Task_Subject}')
+    #print(f'{Task_ID}: {Task_Subject}')
 
 # Create a random Pandas dataframe with existing tickets.
 if "df" not in st.session_state:
