@@ -127,7 +127,7 @@ if submitted:
     # state.
 
     recent_ticket_number = len(st.session_state.df)+1
-    st.write(recent_ticket_number)
+    #st.write(recent_ticket_number)
     #recent_ticket_number = int(max(st.session_state.df.ID).split("-")[1])
     today = datetime.datetime.now().strftime("%Y-%m-%d")
     df_new = pd.DataFrame(
