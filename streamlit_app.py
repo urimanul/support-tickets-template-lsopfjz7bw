@@ -92,7 +92,7 @@ if submitted:
     )
 
     # Show a little success message.
-    st.write("チケットが提出されました。Ticket submitted! Here are the ticket details:")
+    st.write("チケットが提出されました。")
     st.dataframe(df_new, use_container_width=True, hide_index=True)
     st.session_state.df = pd.concat([df_new, st.session_state.df], axis=0)
 
