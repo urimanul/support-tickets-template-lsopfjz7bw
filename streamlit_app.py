@@ -127,7 +127,7 @@ if submitted:
     query__for_count = """
     SELECT MAX(Task_ID) as lastID FROM FROM todo_tasks;
     """
-    ;
+    
     cur.execute(query__for_count)
     for fetched_line in cur.fetchall():
         lastID = fetched_line['lastID']
