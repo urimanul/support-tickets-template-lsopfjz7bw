@@ -42,7 +42,7 @@ for fetched_line in cur.fetchall():
     id = fetched_line['Task_ID']
     name = fetched_line['Task_Subject']
     #st.write(f'{id}: {name}')
-st.write(fetched_line)
+st.write(list(fetched_line))
 
 # Create a random Pandas dataframe with existing tickets.
 if "df" not in st.session_state:
