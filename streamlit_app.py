@@ -40,7 +40,7 @@ SELECT Task_ID,Task_Subject FROM todo_tasks ORDER BY task_ID;
 cur.execute(query__for_fetching)
 
 for row in cur:
-    print(row[0], row[1])
+    st.write(row[0], row[1])
 
 #for fetched_line in cur.fetchall():
     #id = fetched_line['Task_ID']
