@@ -34,13 +34,12 @@ if not conn.is_connected():
 cur = conn.cursor()
 
 query__for_fetching = """
-SELECT Task_ID,Task_Subject FROM todo_tasks ORDER BY task_ID;
+SELECT Task_Subject FROM todo_tasks ORDER BY task_ID;
 """
 
 cur.execute(query__for_fetching)
 
-for row in cur:
-    st.write(row[0], row[1])
+issue_descriptions = cur
 
 #for fetched_line in cur.fetchall():
     #id = fetched_line['Task_ID']
@@ -54,7 +53,7 @@ if "df" not in st.session_state:
     np.random.seed(42)
 
     # Make up some fake issue descriptions.
-    issue_descriptions = [
+    issue_descriptions1 = [
         "オフィスのネットワーク接続の問題",
         "ソフトウェアアプリケーションが起動時にクラッシュする",
         "プリンターが印刷コマンドに応答しない",
