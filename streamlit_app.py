@@ -30,8 +30,8 @@ conn = mysql.connector.connect(
 if not conn.is_connected():
     raise Exception("MySQLサーバへの接続に失敗しました")
 
-#cur = conn.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
-cur = conn.cursor()
+cur = conn.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
+#cur = conn.cursor()
 
 query__for_fetching = """
 SELECT Task_Subject FROM todo_tasks ORDER BY task_ID limit 20;
@@ -42,7 +42,7 @@ cur.execute(query__for_fetching)
 issue_descriptions1 = []
 for row in cur:
     #st.write(row)
-    issue_descriptions1.append(row)
+    issue_descriptions1.append(row["Task_Subject"])
 
 st.write(issue_descriptions1)
 
@@ -98,7 +98,7 @@ if "df" not in st.session_state:
     # page runs). This ensures our data is persisted when the app updates.
     st.session_state.df = df
 
-st.write(issue_descriptions)
+#st.write(issue_descriptions)
 # Show a section to add a new ticket.
 st.header("チケット追加")
 
