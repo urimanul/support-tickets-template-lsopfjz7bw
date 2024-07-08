@@ -39,8 +39,6 @@ SELECT Task_ID as ID,Task_Subject as Issue,Task_Status as Status,Task_Priority a
 
 cur.execute(query__for_fetching)
 
-st.write(cur)
-
 #issue_descriptions1 = []
 #for row in cur:
     #st.write(row)
