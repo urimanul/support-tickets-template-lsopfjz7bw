@@ -30,8 +30,8 @@ conn = mysql.connector.connect(
 if not conn.is_connected():
     raise Exception("MySQLサーバへの接続に失敗しました")
 
-#cur = conn.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
-cur = conn.cursor()
+cur = conn.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
+#cur = conn.cursor()
 
 query__for_fetching = """
 SELECT Task_ID,Task_Subject FROM todo_tasks ORDER BY task_ID;
