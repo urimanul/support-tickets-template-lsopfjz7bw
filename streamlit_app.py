@@ -103,7 +103,7 @@ if "df" not in st.session_state:
         ],
     }
 
-    df = pd.DataFrame(data1)
+    df = pd.DataFrame(data)
 
     # Save the dataframe in session state (a dictionary-like object that persists across
     # page runs). This ensures our data is persisted when the app updates.
