@@ -42,7 +42,7 @@ cur.execute(query__for_fetching)
 issue_descriptions1 = []
 for row in cur:
     #st.write(row)
-    issue_descriptions1.append(row['Task_Subject'])
+    issue_descriptions1.append(row)
 
 st.write(issue_descriptions1)
 
