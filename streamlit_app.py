@@ -41,7 +41,7 @@ cur.execute(query__for_fetching)
 
 data1 = {'ID':[],'Issue':[],'Status':[],'Priority':[],'Date Submitted':[]}
 for fetched_line in cur.fetchall():
-    data1['ID'].append(fetched_line['ID'])
+    data1['ID'].append(f"TICKET-"+fetched_line['ID'])
     data1['Issue'].append(fetched_line['Issue'])
     data1['Status'].append(fetched_line['Status'])
     data1['Priority'].append(fetched_line['Priority'])
