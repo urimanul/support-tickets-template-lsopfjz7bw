@@ -34,23 +34,23 @@ cur = conn.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
 #cur = conn.cursor()
 
 query__for_fetching = """
-SELECT Task_ID as ID,Task_Subject as Issue,Task_Status as Status,Task_Priority as Priority,Task_Start_Date as Date_Submitted FROM todo_tasks ORDER BY task_ID limit 20;
+SELECT Task_ID as ID,Task_Subject as Issue,Task_Status as Status,Task_Priority as Priority,Task_Start_Date as Date_Submitted FROM todo_tasks ORDER BY task_ID;
 """
 
 cur.execute(query__for_fetching)
 
 data1 = {'ID':'','Issue':'','Status':'','Priority':'','Date Submitted':''}
 for fetched_line in cur.fetchall():
-    data1['ID'].append(fetched_line['ID'])
-    data1['Issue'].append(fetched_line['Issue'])
-    data1['Status'].append(fetched_line['Status'])
-    data1['Priority'].append(fetched_line['Priority'])
-    data1['Date Submitted'].append(fetched_line['Date_Submitted'])
+    data1['ID'] = fetched_line['ID']
+    data1['Issue'] = fetched_line['Issue']
+    data1['Status'] = fetched_line['Status']
+    data1['Priority'] = fetched_line['Priority']
+    data1['Date Submitted'] = fetched_line['Date_Submitted']
     #id = fetched_line['Task_ID']
     #name = fetched_line['Task_Subject']
     #st.write(f'{id}: {name}')
 
-#st.write(data1)
+st.write(data1)
 
 #issue_descriptions1 = []
 #for row in cur:
