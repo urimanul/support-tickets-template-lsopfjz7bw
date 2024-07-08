@@ -39,10 +39,10 @@ SELECT Task_Subject FROM todo_tasks ORDER BY task_ID limit 20;
 
 cur.execute(query__for_fetching)
 
-issue_descriptions1 = []
+issue_descriptions = []
 for row in cur:
     #st.write(row)
-    issue_descriptions1.append(row["Task_Subject"])
+    issue_descriptions.append(row["Task_Subject"])
 
 st.write(issue_descriptions1)
 
@@ -58,7 +58,7 @@ if "df" not in st.session_state:
     np.random.seed(42)
 
     # Make up some fake issue descriptions.
-    issue_descriptions = [
+    issue_descriptions2 = [
         "オフィスのネットワーク接続の問題",
         "ソフトウェアアプリケーションが起動時にクラッシュする",
         "プリンターが印刷コマンドに応答しない",
