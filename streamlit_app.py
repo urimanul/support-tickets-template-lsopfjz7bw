@@ -39,8 +39,8 @@ SELECT * FROM todo_tasks ORDER BY task_ID;
 cur.execute(query__for_fetching)
 
 for fetched_line in cur.fetchall():
-    id = fetched_line['id']
-    name = fetched_line['name']
+    id = fetched_line['Task_ID']
+    name = fetched_line['Task_Subject']
     st.write(f'{Task_ID}: {Task_Subject}')
 
 # Create a random Pandas dataframe with existing tickets.
