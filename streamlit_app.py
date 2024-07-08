@@ -8,7 +8,7 @@ import streamlit as st
 
 # Show app title and description.
 st.set_page_config(page_title="サポート・チケット", page_icon="🎫")
-st.title("🎫 Support tickets")
+st.title("🎫 サポート・チケット")
 st.write(
     """
     サポート チケット ワークフローの実装。ユーザーはチケットを作成、編集できます。 
@@ -71,8 +71,8 @@ st.header("チケット追加")
 # in a form, the app will only rerun once the submit button is pressed.
 with st.form("add_ticket_form"):
     issue = st.text_area("イッシュを説明")
-    priority = st.selectbox("優先度", ["High", "Medium", "Low"])
-    submitted = st.form_submit_button("Submit")
+    priority = st.selectbox("優先度", ["高", "中", "低"])
+    submitted = st.form_submit_button("提出")
 
 if submitted:
     # Make a dataframe for the new ticket and append it to the dataframe in session
@@ -121,7 +121,7 @@ edited_df = st.data_editor(
         "Priority": st.column_config.SelectboxColumn(
             "Priority",
             help="優先度",
-            options=["High", "Medium", "Low"],
+            options=["高", "中", "低"],
             required=True,
         ),
     },
