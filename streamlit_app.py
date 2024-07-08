@@ -41,7 +41,7 @@ cur.execute(query__for_fetching)
 
 issue_descriptions = []
 for row in cur:
-    st.write(row)
+    #st.write(row)
     issue_descriptions.append(row)
 
 #for fetched_line in cur.fetchall():
