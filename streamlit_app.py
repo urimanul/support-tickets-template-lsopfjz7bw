@@ -131,7 +131,7 @@ if submitted:
     """
 
     # DBへ接続
-    conn = mysql.connector.connect(
+    conn2 = mysql.connector.connect(
         user='smairuser',
         password='smairuser',
         host='www.ryhintl.com',
@@ -140,17 +140,17 @@ if submitted:
     )
 
     # DBの接続確認
-    if not conn.is_connected():
+    if not conn2.is_connected():
         raise Exception("MySQLサーバへの接続に失敗しました")
 
-    cur = conn.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
-    cur.execute(query__for_count)
+    cur2 = conn2.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
+    cur2.execute(query__for_count)
     
-    for fetched_line in cur.fetchall():
-        lastID = fetched_line['lastID']
-        st.write(fetched_line['lastID'])
+    for fetched_line2 in cur2.fetchall():
+        lastID = fetched_line2['lastID']
+        st.write(fetched_line2['lastID'])
         
-    cur.close()
+    cur2.close()
 
     recent_ticket_number = int(lastID)+1
     #recent_ticket_number = int(max(st.session_state.df.ID).split("-")[1])
