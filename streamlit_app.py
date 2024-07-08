@@ -34,15 +34,17 @@ cur = conn.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
 #cur = conn.cursor()
 
 query__for_fetching = """
-SELECT Task_Subject FROM todo_tasks ORDER BY task_ID limit 20;
+SELECT Task_ID as ID,Task_Subject as Issue,Task_Status as Status,Task_Priority as Priority,Task_Start_Date as Date_Submitted FROM todo_tasks ORDER BY task_ID limit 20;
 """
 
 cur.execute(query__for_fetching)
 
-issue_descriptions = []
-for row in cur:
+st.write(cur)
+
+#issue_descriptions1 = []
+#for row in cur:
     #st.write(row)
-    issue_descriptions.append(row["Task_Subject"])
+    #issue_descriptions1.append(row["Task_Subject"])
 
 #st.write(issue_descriptions1)
 
@@ -58,7 +60,7 @@ if "df" not in st.session_state:
     np.random.seed(42)
 
     # Make up some fake issue descriptions.
-    issue_descriptions2 = [
+    issue_descriptions = [
         "オフィスのネットワーク接続の問題",
         "ソフトウェアアプリケーションが起動時にクラッシュする",
         "プリンターが印刷コマンドに応答しない",
