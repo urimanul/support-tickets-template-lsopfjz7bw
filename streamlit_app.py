@@ -7,15 +7,6 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-# DBへ接続
-conn = mysql.connector.connect(
-    user='smairuser',
-    password='smairuser',
-    host='www.ryhintl.com',
-    database='smair',
-    port=36000
-)
-
 # Show app title and description.
 st.set_page_config(page_title="サポート・チケット", page_icon="🎫")
 st.title("🎫 サポート・チケット")
@@ -24,6 +15,15 @@ st.write(
     サポート チケット ワークフローの実装。ユーザーはチケットを作成、編集できます。 
     既存のチケットを確認し、統計を表示します。
     """
+)
+
+# DBへ接続
+conn = mysql.connector.connect(
+    user='smairuser',
+    password='smairuser',
+    host='www.ryhintl.com',
+    database='smair',
+    port=36000
 )
 
 # DBの接続確認
