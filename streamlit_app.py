@@ -39,7 +39,9 @@ SELECT Task_Subject FROM todo_tasks ORDER BY task_ID;
 
 cur.execute(query__for_fetching)
 
-issue_descriptions = cur
+issue_descriptions = []
+for row in cursor:
+    issue_descriptions.append(row)
 
 #for fetched_line in cur.fetchall():
     #id = fetched_line['Task_ID']
