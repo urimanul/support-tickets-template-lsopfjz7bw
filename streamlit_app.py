@@ -52,7 +52,7 @@ if "df" not in st.session_state:
         "Issue": np.random.choice(issue_descriptions, size=100),
         "Status": np.random.choice(["Open", "In Progress", "Closed"], size=100),
         "Priority": np.random.choice(["High", "Medium", "Low"], size=100),
-        "Date Submitted": [
+        "提出日": [
             datetime.date(2023, 6, 1) + datetime.timedelta(days=random.randint(0, 182))
             for _ in range(100)
         ],
@@ -86,7 +86,7 @@ if submitted:
                 "Issue": issue,
                 "Status": "Open",
                 "Priority": priority,
-                "Date Submitted": today,
+                "提出日": today,
             }
         ]
     )
@@ -126,7 +126,7 @@ edited_df = st.data_editor(
         ),
     },
     # Disable editing the ID and Date Submitted columns.
-    disabled=["ID", "Date Submitted"],
+    disabled=["ID", "提出日"],
 )
 
 # Show some metrics and charts about the ticket.
@@ -146,7 +146,7 @@ status_plot = (
     alt.Chart(edited_df)
     .mark_bar()
     .encode(
-        x="month(Date Submitted):O",
+        x="month(提出日):O",
         y="count():Q",
         xOffset="Status:N",
         color="Status:N",
