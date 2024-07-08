@@ -52,7 +52,7 @@ if "df" not in st.session_state:
         "Issue": np.random.choice(issue_descriptions, size=100),
         "Status": np.random.choice(["Open", "In Progress", "Closed"], size=100),
         "Priority": np.random.choice(["High", "Medium", "Low"], size=100),
-        "提出日": [
+        "Date Submitted": [
             datetime.date(2023, 6, 1) + datetime.timedelta(days=random.randint(0, 182))
             for _ in range(100)
         ],
