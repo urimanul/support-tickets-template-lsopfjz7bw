@@ -47,7 +47,7 @@ for fetched_line in cur.fetchall():
     data1['Priority'].append(fetched_line['Priority'])
     data1['Date Submitted'].append(fetched_line['Date_Submitted'])
 
-st.write(data1)
+#st.write(data1)
 
 #issue_descriptions1 = []
 #for row in cur:
@@ -136,6 +136,12 @@ if submitted:
             }
         ]
     )
+
+    #sql = "INSERT INTO todo_tasks (Task_ID,Task_Assigned_Employee_ID,Task_Subject,Task_Start_Date,Task_Due_Date,Task_Status,Task_Priority,Task_Completion,Task_Parent_ID) VALUES('xyzss')"
+    sql = "INSERT INTO todo_tasks (Task_Subject) VALUES('xyzss')"
+    cur.execute(sql)
+
+    conn.commit()
 
     # Show a little success message.
     st.write("チケットが提出されました。")
