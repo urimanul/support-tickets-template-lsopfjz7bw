@@ -44,7 +44,8 @@ for fetched_line in cur.fetchall():
     #name = fetched_line['Task_Subject']
     #st.write(f'{id}: {name}')
 
-st.write(fetched_line)
+fl = cur.fetchall()
+st.write(fl)
 
 #issue_descriptions1 = []
 #for row in cur:
