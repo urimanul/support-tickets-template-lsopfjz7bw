@@ -51,7 +51,7 @@ if "df" not in st.session_state:
         "ID": [f"TICKET-{i}" for i in range(1100, 1000, -1)],
         "Issue": np.random.choice(issue_descriptions, size=100),
         "Status": np.random.choice(["Open", "In Progress", "Closed"], size=100),
-        "": np.random.choice(["High", "Medium", "Low"], size=100),
+        "Priority": np.random.choice(["High", "Medium", "Low"], size=100),
         "Date Submitted": [
             datetime.date(2023, 6, 1) + datetime.timedelta(days=random.randint(0, 182))
             for _ in range(100)
@@ -71,14 +71,14 @@ st.header("チケット追加")
 # in a form, the app will only rerun once the submit button is pressed.
 with st.form("add_ticket_form"):
     issue = st.text_area("イッシュを説明")
-    priority = st.selectbox("優先度", ["高", "中", "低"])
+    priority = st.selectbox("Priority", ["High", "Medium", "Low"])
     submitted = st.form_submit_button("提出")
 
 if submitted:
     # Make a dataframe for the new ticket and append it to the dataframe in session
     # state.
     recent_ticket_number = int(max(st.session_state.df.ID).split("-")[1])
-    today = datetime.datetime.now().strftime("%Y-%m-%d")
+    today = datetime.datetime.now().strftime("%m-%d-%Y")
     df_new = pd.DataFrame(
         [
             {
@@ -92,7 +92,7 @@ if submitted:
     )
 
     # Show a little success message.
-    st.write("詳細:")
+    st.write("チケットが提出されました。Ticket submitted! Here are the ticket details:")
     st.dataframe(df_new, use_container_width=True, hide_index=True)
     st.session_state.df = pd.concat([df_new, st.session_state.df], axis=0)
 
@@ -114,14 +114,14 @@ edited_df = st.data_editor(
     column_config={
         "Status": st.column_config.SelectboxColumn(
             "Status",
-            help="ステータス",
+            help="Ticket status",
             options=["Open", "In Progress", "Closed"],
             required=True,
         ),
         "Priority": st.column_config.SelectboxColumn(
             "Priority",
-            help="優先度",
-            options=["高", "中", "低"],
+            help="Priority",
+            options=["High", "Medium", "Low"],
             required=True,
         ),
     },
@@ -130,7 +130,7 @@ edited_df = st.data_editor(
 )
 
 # Show some metrics and charts about the ticket.
-st.header("統計")
+st.header("Statistics")
 
 # Show metrics side by side using `st.columns` and `st.metric`.
 col1, col2, col3 = st.columns(3)
@@ -157,7 +157,7 @@ status_plot = (
 )
 st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
 
-st.write("##### 優先度")
+st.write("##### Current ticket priorities")
 priority_plot = (
     alt.Chart(edited_df)
     .mark_arc()
