@@ -41,11 +41,11 @@ cur.execute(query__for_fetching)
 
 data = {'ID':'','Issue':'','Status':'','Priority':'','Date Submitted':''}
 for fetched_line in cur.fetchall():
-    data['ID'] = fetched_line['ID']
-    data['Issue'] = fetched_line['Issue']
-    data['Status'] = fetched_line['Status']
-    data['Priority'] = fetched_line['Priority']
-    data['Date Submitted'] = fetched_line['Date_Submitted']
+    data['ID'].append(fetched_line['ID'])
+    data['Issue'].append(fetched_line['Issue'])
+    data['Status'].append(fetched_line['Status'])
+    data['Priority'].append(fetched_line['Priority'])
+    data['Date Submitted'].append(fetched_line['Date_Submitted'])
     #id = fetched_line['Task_ID']
     #name = fetched_line['Task_Subject']
     #st.write(f'{id}: {name}')
