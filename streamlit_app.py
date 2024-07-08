@@ -129,15 +129,27 @@ if submitted:
     query__for_count = """
     SELECT MAX(Task_ID) as lastID FROM FROM todo_tasks;
     """
+
+    # DBへ接続
+    conn = mysql.connector.connect(
+        user='smairuser',
+        password='smairuser',
+        host='www.ryhintl.com',
+        database='smair',
+        port=36000
+    )
+
     # DBの接続確認
     if not conn.is_connected():
         raise Exception("MySQLサーバへの接続に失敗しました")
 
     cur = conn.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
     cur.execute(query__for_count)
+    
     for fetched_line in cur.fetchall():
         lastID = fetched_line['lastID']
         st.write(fetched_line['lastID'])
+        
     cur.close()
 
     recent_ticket_number = int(lastID)+1
