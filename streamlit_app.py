@@ -125,32 +125,6 @@ with st.form("add_ticket_form"):
 if submitted:
     # Make a dataframe for the new ticket and append it to the dataframe in session
     # state.
-    lastID = "";
-    query__for_count = """
-    SELECT MAX(Task_ID) as lastID FROM FROM todo_tasks;
-    """
-
-    # DBへ接続
-    conn2 = mysql.connector.connect(
-        user='smairuser',
-        password='smairuser',
-        host='www.ryhintl.com',
-        database='smair',
-        port=36000
-    )
-
-    # DBの接続確認
-    if not conn2.is_connected():
-        raise Exception("MySQLサーバへの接続に失敗しました")
-
-    cur2 = conn2.cursor(dictionary=True)  # 取得結果を辞書型で扱う設定
-    cur2.execute(query__for_count)
-    
-    for fetched_line2 in cur2.fetchall():
-        lastID = fetched_line2['lastID']
-        st.write(fetched_line2['lastID'])
-        
-    cur2.close()
 
     recent_ticket_number = int(lastID)+1
     #recent_ticket_number = int(max(st.session_state.df.ID).split("-")[1])
