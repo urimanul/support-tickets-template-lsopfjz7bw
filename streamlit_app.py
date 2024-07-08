@@ -157,7 +157,7 @@ status_plot = (
 )
 st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
 
-st.write("##### Current ticket priorities")
+st.write("##### 優先度")
 priority_plot = (
     alt.Chart(edited_df)
     .mark_arc()
