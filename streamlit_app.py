@@ -130,7 +130,7 @@ if submitted:
             {
                 "ID": f"TICKET-{recent_ticket_number+1}",
                 "Issue": issue,
-                "Status": "Open",
+                "Status": "Not Started",
                 "Priority": priority,
                 "Date Submitted": today,
             }
@@ -161,7 +161,7 @@ edited_df = st.data_editor(
         "Status": st.column_config.SelectboxColumn(
             "Status",
             help="Ticket status",
-            options=["Open", "In Progress", "Closed"],
+            options=["Not Started", "In Progress", "Completed", "Deferred","Need Assistance"],
             required=True,
         ),
         "Priority": st.column_config.SelectboxColumn(
