@@ -71,7 +71,7 @@ st.header("チケット追加")
 # in a form, the app will only rerun once the submit button is pressed.
 with st.form("add_ticket_form"):
     issue = st.text_area("イッシュを説明")
-    priority = st.selectbox("Priority", ["High", "Medium", "Low"])
+    priority = st.selectbox("優先度", ["High", "Medium", "Low"])
     submitted = st.form_submit_button("提出")
 
 if submitted:
