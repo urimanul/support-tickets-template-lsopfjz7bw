@@ -105,6 +105,7 @@ if "df" not in st.session_state:
         ],
     }
 
+    st.write(data1)
     df = pd.DataFrame(data1)
 
     # Save the dataframe in session state (a dictionary-like object that persists across
@@ -126,7 +127,7 @@ if submitted:
     # Make a dataframe for the new ticket and append it to the dataframe in session
     # state.
 
-    recent_ticket_number = len(df)+1
+    recent_ticket_number = len(data1)+1
     st.write(recent_ticket_number)
     #recent_ticket_number = int(max(st.session_state.df.ID).split("-")[1])
     today = datetime.datetime.now().strftime("%Y-%m-%d")
