@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 
 # Show app title and description.
-st.set_page_config(page_title="Support tickets", page_icon="🎫")
+st.set_page_config(page_title="サポート・チケット", page_icon="🎫")
 st.title("🎫 Support tickets")
 st.write(
     """
@@ -70,15 +70,15 @@ st.header("チケット追加")
 # We're adding tickets via an `st.form` and some input widgets. If widgets are used
 # in a form, the app will only rerun once the submit button is pressed.
 with st.form("add_ticket_form"):
-    issue = st.text_area("Describe the issue")
-    priority = st.selectbox("Priority", ["High", "Medium", "Low"])
+    issue = st.text_area("イッシュを説明")
+    priority = st.selectbox("優先度", ["High", "Medium", "Low"])
     submitted = st.form_submit_button("Submit")
 
 if submitted:
     # Make a dataframe for the new ticket and append it to the dataframe in session
     # state.
     recent_ticket_number = int(max(st.session_state.df.ID).split("-")[1])
-    today = datetime.datetime.now().strftime("%m-%d-%Y")
+    today = datetime.datetime.now().strftime("%Y-%m-%d")
     df_new = pd.DataFrame(
         [
             {
@@ -120,7 +120,7 @@ edited_df = st.data_editor(
         ),
         "Priority": st.column_config.SelectboxColumn(
             "Priority",
-            help="Priority",
+            help="優先度",
             options=["High", "Medium", "Low"],
             required=True,
         ),
@@ -157,7 +157,7 @@ status_plot = (
 )
 st.altair_chart(status_plot, use_container_width=True, theme="streamlit")
 
-st.write("##### Priority")
+st.write("##### 優先度")
 priority_plot = (
     alt.Chart(edited_df)
     .mark_arc()
