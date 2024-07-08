@@ -39,13 +39,13 @@ SELECT Task_ID as ID,Task_Subject as Issue,Task_Status as Status,Task_Priority a
 
 cur.execute(query__for_fetching)
 
-fl = {'ID':'','Issue':'','Status':'','Priority':'','Date Submitted':''}
+data = {'ID':'','Issue':'','Status':'','Priority':'','Date Submitted':''}
 for fetched_line in cur.fetchall():
-    fl['ID'] = fetched_line['ID']
-    fl['Issue'] = fetched_line['Issue']
-    fl['Status'] = fetched_line['Status']
-    fl['Priority'] = fetched_line['Priority']
-    fl['Date Submitted'] = fetched_line['Date_Submitted']
+    data['ID'] = fetched_line['ID']
+    data['Issue'] = fetched_line['Issue']
+    data['Status'] = fetched_line['Status']
+    data['Priority'] = fetched_line['Priority']
+    data['Date Submitted'] = fetched_line['Date_Submitted']
     #id = fetched_line['Task_ID']
     #name = fetched_line['Task_Subject']
     #st.write(f'{id}: {name}')
@@ -95,7 +95,7 @@ if "df" not in st.session_state:
     ]
 
     # Generate the dataframe with 100 rows/tickets.
-    data = {
+    data1 = {
         "ID": [f"TICKET-{i}" for i in range(1100, 1000, -1)],
         "Issue": np.random.choice(issue_descriptions, size=100),
         "Status": np.random.choice(["Open", "In Progress", "Closed"], size=100),
