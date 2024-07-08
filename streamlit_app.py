@@ -34,7 +34,7 @@ if not conn.is_connected():
 cur = conn.cursor()
 
 query__for_fetching = """
-SELECT Task_Subject FROM todo_tasks ORDER BY task_ID;
+SELECT Task_ID,Task_Subject FROM todo_tasks ORDER BY task_ID;
 """
 
 cur.execute(query__for_fetching)
@@ -43,10 +43,10 @@ cur.execute(query__for_fetching)
 #for row in cursor:
     #issue_descriptions.append(row)
 
-#for fetched_line in cur.fetchall():
-    #id = fetched_line['Task_ID']
-    #name = fetched_line['Task_Subject']
-    #st.write(f'{id}: {name}')
+for fetched_line in cur.fetchall():
+    id = fetched_line['Task_ID']
+    name = fetched_line['Task_Subject']
+    st.write(f'{id}: {name}')
 
 # Create a random Pandas dataframe with existing tickets.
 if "df" not in st.session_state:
