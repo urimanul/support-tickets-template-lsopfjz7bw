@@ -39,12 +39,13 @@ SELECT Task_ID as ID,Task_Subject as Issue,Task_Status as Status,Task_Priority a
 
 cur.execute(query__for_fetching)
 
+fl = {}
 for fetched_line in cur.fetchall():
+    fl.append(fetched_line)
     #id = fetched_line['Task_ID']
     #name = fetched_line['Task_Subject']
     #st.write(f'{id}: {name}')
 
-fl = cur.fetchall()
 st.write(fl)
 
 #issue_descriptions1 = []
