@@ -39,7 +39,7 @@ SELECT Task_ID as ID,Task_Subject as Issue,Task_Status as Status,Task_Priority a
 
 cur.execute(query__for_fetching)
 
-fl = {"ID":"","Issue":"","Status":"","Priority":"","Date Submitted":""}
+fl = {'ID':'','Issue':'','Status':'','Priority':'','Date Submitted':''}
 for fetched_line in cur.fetchall():
     fl['ID'] = fetched_line['Task_ID']
     fl['Issue'] = fetched_line['Task_Subject']
